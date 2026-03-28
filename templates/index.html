@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Gastos por JCM</title>
+
+    <!-- 🔥 CSS -->
+    <link rel="stylesheet" href="/static/css/style.css">
+
+    <!-- Responsive (importante para móvil) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="/static/manifest.json">
+    <meta name="theme-color" content="#00c896">
+</head>
+
+<body>
+
+<header class="header">
+    <h1>💸 GASTOS POR JCM</h1>
+</header>
+
+<div class="container">
+
+    <button class="btn-nuevo" onclick="nuevo()">🆕 Nuevo</button> 
+    <button id="btnInstalar" style="display:none;">📲 Instalar app</button>
+
+    <h2>Personas</h2>
+    <input type="text" id="nombrePersona" placeholder="Nombre">
+    <button onclick="agregarPersona()">Añadir</button>
+
+    <ul id="listaPersonas"></ul>
+
+    <h2>Gastos</h2>
+    <select id="personaGasto"></select>
+    <input type="text" id="concepto" placeholder="Concepto">
+    <input type="number" id="cantidad" placeholder="Cantidad">
+    <input type="date" id="fecha">
+    <button onclick="agregarGasto()">Añadir gasto</button>
+
+    <ul id="listaGastos"></ul>
+
+    <button onclick="calcular()">Calcular</button>
+
+    <h2>Resultado</h2>
+    <div id="resultado"></div>
+
+    <button onclick="exportar()">Guardar archivo</button>
+    <input type="file" onchange="importar(event)">
+    <button class="btn-nuevo" onclick="nuevo()">🆕 Nuevo</button>
+
+</div>
+
+<footer class="footer">
+    <p>© <span id="year"></span> - 
+        <a href="https://jesuscmweb.com" target="_blank">jesuscmweb.com</a>
+    </p>
+</footer>
+
+<!-- 🔥 MODAL -->
+<div id="modalConfirm" class="modal">
+    <div class="modal-content">
+        <p>¿Quieres empezar una nueva sesión y borrar los datos actuales?</p>
+        <button onclick="confirmarNuevo()">Sí, empezar</button>
+        <button onclick="cerrarModal()">Cancelar</button>
+    </div>
+</div>
+
+<!-- 🔥 JS (al final SIEMPRE) -->
+<script src="/static/js/app.js"></script>
+
+</body>
+</html>
